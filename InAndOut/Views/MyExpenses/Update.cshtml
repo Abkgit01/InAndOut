@@ -1,0 +1,55 @@
+﻿@model InAndOut.Models.ViewModels.ExpensesVM
+
+<form method="post">
+    <input asp-for="MyExpenses.Id" hidden/>
+  <div class="border p-3">
+    <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Update Expenses</h2>
+    </div>
+    <div class="row">
+        <div class="col-12">
+          <div class="form-group row">
+            <div class="col-4">
+              <label asp-for="MyExpenses.Expenses"></label>
+            </div>
+            <div class="col-4">
+                <label asp-for="MyExpenses.Amount"></label>
+            </div>
+            <div class="col-4">
+                <label asp-for="MyExpenses.ExpensesType"></label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-4">
+              <input asp-for="MyExpenses.Expenses" class="form-control"/> 
+              <span asp-validation-for="MyExpenses.Expenses" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+              <input asp-for="MyExpenses.Amount" class="form-control"/> 
+              <span asp-validation-for="MyExpenses.Amount" class="text-danger"class="text-danger"></span>
+            </div>
+            <div class="col-4">
+              <select asp-for="MyExpenses.ExpensesTypeId" asp-items="@Model.TypeDropDown" class="form-control">
+                  <option selected>--Select Expenses Type--</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-8 text-center row offset-2">
+              <div class="col">
+                <input type="submit" class="btn btn-info w-75" value="Update" />
+              </div>
+              <div class="col">
+                <a class="btn btn-primary w-75" asp-action="Index">Back</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</form>
+
+@section Scripts
+{
+    @{<partial name="_ValidationScriptsPartial"/> }
+}
